@@ -1,6 +1,5 @@
--   id: flake8-docker-not-for-production
-    name: flake8 (via docker)
-    description: flake8, but provided by docker
-    entry: flake8
+-   id: clang-format-docker-not-for-production
+    name: clang-format (via docker)
+    description: clang-format, but provided by docker
+    entry: clang-format -i
     language: docker
-    files: \.py$
