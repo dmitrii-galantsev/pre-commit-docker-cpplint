@@ -46,7 +46,7 @@ really wanted to you could add this to your `.pre-commit-config.yaml`:
 -   repo: https://github.com/dmitrii-galantsev/pre-commit-docker-clang
     rev: ''  # Fill this in with a current revision
     hooks:
-    -   id: clang-format-docker-not-for-production
+    -   id: cpplint-docker-not-for-production
 ```
 
 You'll also need to use at least version 0.10.0 of pre-commit.
