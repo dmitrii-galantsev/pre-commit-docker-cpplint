@@ -3,4 +3,4 @@
     description: cpplint, but provided by docker
     entry: cpplint --verbose=5
     language: docker
-    files: \.cpp$ \.cc$ \.c$ \.h$ \.hh$ \.hpp$
+    files: \.(cpp|cc|c|h|hh|hpp)$
