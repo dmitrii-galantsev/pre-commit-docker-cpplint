@@ -3,3 +3,4 @@
     description: clang-format, but provided by docker
     entry: clang-format -i
     language: docker
+    files: \.cpp$ \.cc$ \.c$ \.h$ \.hh$ \.hpp$
