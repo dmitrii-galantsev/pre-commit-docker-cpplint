@@ -4,3 +4,9 @@
     entry: cpplint --verbose=5
     language: docker
     files: \.(cpp|cc|c|h|hh|hpp)$
+-   id: clang-format-docker
+    name: clang-format (via docker)
+    description: clang-format, but provided by docker
+    entry: clang-format -i
+    language: docker
+    files: \.(cpp|cc|c|h|hh|hpp)$
