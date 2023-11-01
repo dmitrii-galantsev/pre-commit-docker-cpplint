@@ -1,5 +1,6 @@
--   id: cpplint-docker-not-for-production
+-   id: cpplint-docker
     name: cpplint (via docker)
     description: cpplint, but provided by docker
     entry: cpplint --verbose=5
     language: docker
+    files: \.cpp$ \.cc$ \.c$ \.h$ \.hh$ \.hpp$
