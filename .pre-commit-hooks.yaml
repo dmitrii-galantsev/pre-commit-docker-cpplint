@@ -1,5 +1,5 @@
--   id: clang-format-docker-not-for-production
-    name: clang-format (via docker)
-    description: clang-format, but provided by docker
-    entry: clang-format -i
+-   id: cpplint-docker-not-for-production
+    name: cpplint (via docker)
+    description: cpplint, but provided by docker
+    entry: cpplint --verbose=5
     language: docker
