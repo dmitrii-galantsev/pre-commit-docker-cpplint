@@ -1,4 +1,4 @@
--   id: clang-format-docker-not-for-production
+-   id: clang-format-docker
     name: clang-format (via docker)
     description: clang-format, but provided by docker
     entry: clang-format -i
