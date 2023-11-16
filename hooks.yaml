@@ -1,13 +1,15 @@
 -   id: cpplint-docker
     name: cpplint (via docker)
     description: cpplint, but provided by docker
-    entry: cpplint --verbose=5
+    entry: cpplint
     language: docker
     files: \.(cpp|cc|c|h|hh|hpp)$
+    args: ["--verbose=5"]
 
 -   id: clang-format-docker
     name: clang-format (via docker)
     description: clang-format, but provided by docker
-    entry: clang-format -i
+    entry: clang-format
     language: docker
     files: \.(cpp|cc|c|h|hh|hpp)$
+    args: ["-i"]
