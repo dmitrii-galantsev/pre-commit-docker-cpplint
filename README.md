@@ -1,53 +1,32 @@
-pre-commit-docker-cpplint
-========================
+# pre-commit-docker-cpplint
+
+This repository is based on <https://github.com/pre-commit/pre-commit-docker-flake8>
 
 ## What is this?
 
 This is a proof-of-concept of providing a [pre-commit](http://pre-commit.com)
-hook for cpplint via docker.  It is suggested to instead use cpplint as provided
-by [pre-commit-hooks](https://github.com/pre-commit/pre-commit-hooks) as
-you'll have slightly better performance and more control over the python
-executable.
+hook for cpplint and clang-format via docker.
 
-## How does this work?
+## How do I use this?
 
-`pre-commit` by convention mounts the user's code at `/src` inside the
-container.  The executable is fed relative path filename arguments.  The hook
-may make changes to the files as the source is mounted read-write and the
-executables are run as the user.
-
-A few key lines in the `Dockerfile` make this work:
-
-```dockerfile
-RUN virtualenv /venv -ppython3 && /venv/bin/pip install cpplint
-ENV PATH=/venv/bin:$PATH
-```
-
-This creates a virtual environment inside the docker image and puts the
-virtualenv on the `PATH` so executables (such as `cpplint`) can be run.
-
-Lastly, the metadata in hooks.yaml hooks this up:
+Add this to your `.pre-commit-config.yaml`:
 
 ```yaml
-    entry: cpplint
-    language: docker
-```
-
-Here `cpplint` is the executable inside the container and we tell `pre-commit`
-that the language is `docker`.
-
-
-## How would I use this repository with pre-commit?
-
-Well, you probably wouldn't (and the hook has been labeled as such) but if you
-really wanted to you could add this to your `.pre-commit-config.yaml`:
-
-```yaml
--   repo: https://github.com/dmitrii-galantsev/pre-commit-docker-cpplint
-    rev: ''  # Fill this in with a current revision
+repos:
+  # For portability I decided to use Docker containers
+  - repo: https://github.com/dmitrii-galantsev/pre-commit-docker-cpplint
+    rev: 0.0.3
     hooks:
-    -   id: cpplint-docker
-    -   id: clang-format-docker
+      - id: clang-format-docker
+      - id: cpplint-docker
+        args: ["--verbose=4"]
 ```
 
-You'll also need to use at least version 0.10.0 of pre-commit.
+## Dependencies
+
+- docker
+- python
+- pre-commit
+
+    sudo apt install docker.io python3-pip
+    python3 -m pip install pre-commit
